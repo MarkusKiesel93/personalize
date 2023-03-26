@@ -1,0 +1,15 @@
+#!/usr/bin/python3
+
+import argparse as ap
+
+from timer import Timer
+
+# parse arguments min and sec
+parser = ap.ArgumentParser(description='CLI Timer for min and sec')
+parser.add_argument('min', type=int, help='minutes to time')
+parser.add_argument('sec', type=int, nargs='?', default=0, help='seconds to time')
+args = parser.parse_args()
+
+# create timer and start
+timer = Timer(args.min, args.sec)
+timer.start()

@@ -1,0 +1,65 @@
+CREATE DATABASE track_books;
+
+\c track_books
+
+CREATE TABLE status(
+status_id SERIAL PRIMARY KEY,
+name VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE authors(
+author_id SERIAL PRIMARY KEY,
+name VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE series(
+series_id SERIAL PRIMARY KEY,
+name VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE categories(
+category_id SERIAL PRIMARY KEY,
+name VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE read_infos(
+read_info_id SERIAL PRIMARY KEY,
+language VARCHAR(100) NOT NULL,
+as_audiobook BOOLEAN NOT NULL
+);
+
+CREATE TABLE books(
+book_id SERIAL PRIMARY KEY,
+name VARCHAR(255) NOT NULL,
+saved BOOLEAN NOT NULL,
+author_id INTEGER NOT NULL REFERENCES authors(author_id),
+status_id INTEGER NOT NULL REFERENCES status(status_id),
+series_id INTEGER REFERENCES series(series_id),
+read_info_id INTEGER REFERENCES read_infos(read_info_id)
+);
+
+CREATE TABLE book_category(
+book_category_id SERIAL PRIMARY KEY,
+book_id INTEGER NOT NULL REFERENCES books(book_id),
+category_id INTEGER NOT NULL REFERENCES categories(category_id)
+);
+
+\dt
+
+INSERT INTO status(name)
+VALUES('read'),
+('want to read'),
+('currently reading');
+
+SELECT * FROM status;
+
+INSERT INTO categories(name)
+VALUES('fantasy'),
+('business'),
+('classics'),
+('self improvement');
+
+SELECT * FROM categories;
+
+search for authors by book
+write script to insert data into database

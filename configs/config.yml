@@ -1,0 +1,22 @@
+path:
+  scripts:
+    shared/personalize/scripts
+
+executable_scripts:
+  timer:
+    - timer
+    - pomodoro
+
+# specify path to the database
+database:
+  # database home where all folders live
+  # has to be in $HOME directory
+  db_home:
+    Cloud/database
+  # relative path from db_home to files for the specific databases
+  series:
+    series/series.csv
+  spending:
+    spending/spending.csv
+  startup:
+    startup/startup.csv

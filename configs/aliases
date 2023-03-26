@@ -1,0 +1,36 @@
+#here are my personoal alias for commands (after edditing source ~/.bashrc to refresh)
+
+#faster ls commands
+alias ll='ls -l'
+alias la='ls -la'
+alias lr='ls -lR'
+alias lar='ls -laR'
+
+#sudo
+alias s='sudo'
+
+#startup
+alias startup='python3 $HOME/.personalize/myScripts/startup.py' #jupyter notebook
+
+#shutdown
+alias pwoff='sudo shutdown now'
+alias restart='sudo shutdown -r now'
+
+#faster run something
+alias jupnb='jupyter notebook --ip 127.0.0.1' #jupyter notebook
+alias connSlycerBerry='ssh -X pi@192.168.0.111' #connect to Raspberry on router
+alias connSmartlight='ssh -X pi@192.168.0.222' #connect to Raspberry Zero Smartlight
+
+#keepass
+alias keePassP='keepassx /media/$USER/SLYCERCARD/authentication/Database_KieselM.kdbx'
+alias keePassB='keepassx /media/$USER/SLYCERCARD/authentication_business/pw_db_kiesel_business.kdbx'
+
+# old keepass -> alias keePass='mono /media/$USER/SLYCERCARD/authentication/KeePass/KEEPASS.exe' #open Keepass
+
+#expressvpn
+alias vpnStatus='expressvpn status'
+alias vpnDisconnect='expressvpn disconnect'
+alias vpnCH='expressvpn connect ch2'
+alias vpnNL='expressvpn connect nlam'
+alias vpnAT='expressvpn connect at'
+alias vpnUS='expressvpn connect usny'

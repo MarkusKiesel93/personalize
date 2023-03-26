@@ -1,0 +1,29 @@
+#!/usr/bin/python3
+
+import argparse as ap
+
+from timer import Timer
+
+# parse arguments min and sec
+parser = ap.ArgumentParser(description='Pomodoro timer')
+parser.add_argument('min_pomo', type=int, nargs='?', default=25, help='minutes for pomodoro')
+parser.add_argument('short_break', type=int, nargs='?', default=5, help='minutes for short break')
+parser.add_argument('long_break', type=int, nargs='?', default=15, help='minutes for long break')
+parser.add_argument('-lc', '--loop', action='store_true')
+args = parser.parse_args()
+
+# create timers
+pomodoro = Timer(args.min_pomo, output='POMODORO')
+short_break = Timer(args.short_break, output='SHORT BREAK')
+long_break = Timer(args.long_break, output='LONG BREAK')
+
+# run pomodoro
+# runs only once without '-l'
+while True:
+    pomodoro.start()
+    short_break.start()
+    pomodoro.start()
+    long_break.start()
+    # break loop if pomodoro should not loop
+    if not args.loop:
+        break
